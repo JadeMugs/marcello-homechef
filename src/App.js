@@ -11,16 +11,23 @@ import './style/components.scss';
 import Home from './components/Home';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
+import { authReducer, initialAuthState } from './utils/reducer';
+import { AuthContext } from './utils/context';
 
 function App() {
+  const [state, dispatch] = React.useReducer(authReducer, initialAuthState);
+  const value = { state, dispatch };
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <AdminRouter path="/dashboard" component={Dashboard} />
-      </Switch>
-    </Router>
+    <AuthContext.Provider value={value}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <AdminRouter path="/dashboard" component={Dashboard} />
+        </Switch>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
