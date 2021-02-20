@@ -1,5 +1,10 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import './index.scss';
 import './style/home.scss';
 import './style/components.scss';
@@ -13,10 +18,23 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
+        <AdminRouter path="/dashboard" component={Dashboard} />
       </Switch>
     </Router>
   );
 }
 
 export default App;
+
+const AdminRouter = ({ component: Component, ...rest }) => {
+  // TODO change
+  const loggedIn = false;
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        !loggedIn ? <Redirect to="/login" /> : <Component {...props} />
+      }
+    />
+  );
+};
