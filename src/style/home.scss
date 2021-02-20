@@ -1,0 +1,140 @@
+@import './colors.scss';
+// @font-face {
+//   font-family: 'logo-font';
+//   src: url('./fonts/GoodBrush.ttf') format('truetype');
+// }
+
+.navbar {
+  position: absolute;
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: space-between;
+  background: $background-color;
+  z-index: 999;
+
+  .logo {
+    max-width: 20%;
+    max-height: 45px;
+    padding: 15px;
+  }
+
+  .orizontal-menu {
+    ul {
+      display: flex;
+      vertical-align: middle;
+      height: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      display: inline;
+
+      a {
+        text-decoration: none;
+        color: $font-color;
+        font-size: $medium-font-size;
+      }
+    }
+  }
+}
+
+.landing {
+  background: $background-color;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  .image-container {
+    width: calc(100% - 6rem);
+    height: calc(100% - 2rem);
+    margin: auto;
+    background: url('../static/dish-home.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+    z-index: 2;
+  }
+
+  .title-container {
+    text-align: center;
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .title {
+      color: $background-color;
+      margin: auto;
+
+      h1 {
+        font-size: 4rem;
+        // font-family: 'logo-font', sans-serif;
+        font-weight: 500;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        margin-bottom: 5px;
+        text-transform: uppercase;
+      }
+
+      .leaf-down {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .scroll-button {
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-page {
+  height: 100vh;
+  text-align: center;
+
+  > div {
+    padding: 3rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  img {
+    height: 30vh;
+  }
+  .menu {
+    padding: 2rem;
+
+    h2 {
+      text-align: right;
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+}
