@@ -18,6 +18,13 @@ export default function Login() {
   const context = React.useContext(AuthContext);
   const history = useHistory();
 
+  React.useEffect(() => {
+    console.log(context?.state?.token);
+    if (context?.state?.token) {
+      history.push('/dashboard');
+    }
+  }, [history, context?.state]);
+
   const onChange = (event) => {
     const { name, value } = event.target;
     setState((prevState) => ({ ...prevState, [name]: value, error: false }));
@@ -27,7 +34,6 @@ export default function Login() {
     post('/login', { username, password })
       .then((response) => {
         context.dispatch({ type: LOGIN, payload: response });
-        history.push('/dashboard');
       })
       .catch((error) => {
         setState((prevState) => ({ ...prevState, error: true }));

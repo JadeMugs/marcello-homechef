@@ -15,7 +15,11 @@ import { authReducer, initialAuthState } from './utils/reducer';
 import { AuthContext } from './utils/context';
 
 function App() {
-  const [state, dispatch] = React.useReducer(authReducer, initialAuthState);
+  const _token = localStorage.getItem('token');
+  const [state, dispatch] = React.useReducer(
+    authReducer,
+    _token ? { token: _token } : initialAuthState
+  );
   const value = { state, dispatch };
 
   return (
@@ -36,7 +40,7 @@ export default App;
 const AdminRouter = ({ component, path, exact }) => {
   const context = React.useContext(AuthContext);
 
-  return context?.state?.user ? (
+  return context?.state?.token ? (
     <Route path={path} component={component} exact={exact || false} />
   ) : (
     <Redirect to="/login" />

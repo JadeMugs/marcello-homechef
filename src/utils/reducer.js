@@ -1,12 +1,14 @@
 import { LOGIN, LOGOUT } from './contants';
 
-export const initialAuthState = { user: undefined, token: undefined };
+export const initialAuthState = { token: undefined };
 
 export function authReducer(state, action) {
   switch (action.type) {
     case LOGIN:
-      return { user: action.payload.user, token: action.payload.token };
+      localStorage.setItem('token', action.payload.token);
+      return { token: action.payload.token };
     case LOGOUT:
+      localStorage.removeItem('token');
       return initialAuthState;
     default:
       throw new Error();
