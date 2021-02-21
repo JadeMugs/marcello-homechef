@@ -33,15 +33,12 @@ function App() {
 
 export default App;
 
-const AdminRouter = ({ component: Component, ...rest }) => {
-  // TODO change
-  const loggedIn = false;
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        !loggedIn ? <Redirect to="/login" /> : <Component {...props} />
-      }
-    />
+const AdminRouter = ({ component, path, exact }) => {
+  const context = React.useContext(AuthContext);
+
+  return context?.state?.user ? (
+    <Route path={path} component={component} exact={exact || false} />
+  ) : (
+    <Redirect to="/login" />
   );
 };
