@@ -24,23 +24,19 @@ app.use(express.static('../build'));
 // });
 
 app.get('/menu', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-
+  // TODO mock data
   const menu = [
-    {
-      // img: menu1,
-      title: 'Menu di primavera',
-    },
-    {
-      // img: menu1,
-      title: 'Menu di primavera',
-    },
-    {
-      // img: menu1,
-      title: 'Menu di primavera',
-    },
+    { title: 'Menu di primavera' },
+    { title: 'Menu di primavera' },
+    { title: 'Menu di primavera' },
   ];
   res.json(menu);
+});
+
+app.post('/login', function (req, res) {
+  // TODO
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.json({ user: 'user', token: 'grvtrghthtrh' });
 });
 
 /**
