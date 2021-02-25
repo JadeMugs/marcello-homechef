@@ -25,7 +25,7 @@ export default function Login() {
     }
   }, [history, context?.state]);
 
-  const onChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setState((prevState) => ({ ...prevState, [name]: value, error: false }));
   };
@@ -45,29 +45,29 @@ export default function Login() {
     <div>
       <form>
         <FormControl>
-          <InputLabel htmlFor="username" error={error}>
+          <InputLabel htmlFor='username' error={error}>
             Username
           </InputLabel>
           <Input
-            type="text"
-            name="username"
+            type='text'
+            name='username'
             value={username}
-            onChange={onChange}
-            id="username"
-            aria-describedby="username"
+            onChange={handleChange}
+            id='username'
+            aria-describedby='username'
           />
         </FormControl>
         <FormControl>
-          <InputLabel htmlFor="password" error={error}>
+          <InputLabel htmlFor='password' error={error}>
             Password
           </InputLabel>
           <Input
-            type="password"
-            name="password"
+            type='password'
+            name='password'
             value={password}
-            onChange={onChange}
-            id="password"
-            aria-describedby="password"
+            onChange={handleChange}
+            id='password'
+            aria-describedby='password'
           />
         </FormControl>
         <FormControl>

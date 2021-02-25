@@ -9,13 +9,13 @@ export default function Menu() {
   }, []);
 
   return (
-    <div className="menu-page">
+    <div className='menu-page'>
       <div>
         <h1>I menu</h1>
-        <div className="menu-list">
+        <div className='menu-list'>
           {menuList?.map((menu, idx) => (
             <div className={idx % 2 === 0 ? 'menu' : 'menu-right'} key={idx}>
-              <img src={menu.img} alt="" />
+              <img src={menu.img} alt='' />
               <h2>{menu.title}</h2>
             </div>
           ))}

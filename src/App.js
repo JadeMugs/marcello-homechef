@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import './index.scss';
 import './style/home.scss';
 import './style/components.scss';
@@ -20,15 +15,15 @@ function App() {
     authReducer,
     _token ? { token: _token } : initialAuthState
   );
-  const value = { state, dispatch };
+  const authvalue = { state, dispatch };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={authvalue}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <AdminRouter path="/dashboard" component={Dashboard} />
+          <Route exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <AdminRouter path='/dashboard' component={Dashboard} />
         </Switch>
       </Router>
     </AuthContext.Provider>
@@ -43,6 +38,6 @@ const AdminRouter = ({ component, path, exact }) => {
   return context?.state?.token ? (
     <Route path={path} component={component} exact={exact || false} />
   ) : (
-    <Redirect to="/login" />
+    <Redirect to='/login' />
   );
 };
