@@ -19,11 +19,10 @@ export default function Login() {
   const history = useHistory();
 
   React.useEffect(() => {
-    console.log(context?.state?.token);
     if (context?.state?.token) {
       history.push('/dashboard');
     }
-  }, [history, context?.state]);
+  }, [history, context]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
