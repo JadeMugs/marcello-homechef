@@ -15,7 +15,7 @@ export default function Menu() {
         <div className='menu-list'>
           {menuList?.map((menu, idx) => (
             <div className={idx % 2 === 0 ? 'menu' : 'menu-right'} key={idx}>
-              <img src={menu.img} alt='' />
+              <img src={menu.img} alt={menu.title} />
               <h2>{menu.title}</h2>
             </div>
           ))}
