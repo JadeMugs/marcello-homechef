@@ -70,7 +70,7 @@ export default function Navbar() {
 
   const menuItems = (loggedIn ? adminMenu : userMenu).map((el) => (
     <MenuItem key={el.link}>
-      <a href={`#${el.link}`}>{el.text}</a>
+      <StyledLink href={`#${el.link}`}>{el.text}</StyledLink>
     </MenuItem>
   ));
 
@@ -86,7 +86,7 @@ export default function Navbar() {
   );
 
   return (
-    <AppBar position='static'>
+    <AppBar>
       <StyledToolbar>
         <StyledLogo src={logo} alt='logo' />
         {!largeDisplay ? (
@@ -132,24 +132,12 @@ const StyledMenuList = styled(MenuList)`
   list-style-type: none;
   margin: 0;
   padding: 0;
-
-  a {
-    text-decoration: none;
-    color: ${colors.black};
-  }
 `;
 
-const StyledHamburgerMenu = styled(Menu)`
-  top: 50px;
+// TODO fix position on hamburger click
+const StyledHamburgerMenu = styled(Menu)``;
 
-  a {
-    text-decoration: none;
-    color: ${colors.black};
-  }
+const StyledLink = styled.a`
+  text-decoration: none;
+  color: ${colors.black};
 `;
-
-// li {
-//   margin: auto;
-//   padding-left: 1.5rem;
-//   padding-right: 1.5rem;
-//   display: inline;
