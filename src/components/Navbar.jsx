@@ -113,9 +113,6 @@ const StyledAppBar = styled(AppBar)`
 const StyledToolbar = styled(Toolbar)`
   position: absolute;
   display: flex;
-  width: inherit;
-  width: -webkit-fill-available; // TODO find better solution
-  flex-direction: row;
   vertical-align: middle;
   justify-content: space-between;
   z-index: 999;
