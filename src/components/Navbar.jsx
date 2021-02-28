@@ -4,7 +4,6 @@ import React from 'react';
 import logo from '../static/logo-font.png';
 import { AuthContext } from '../utils/context';
 import { FiMenu } from 'react-icons/fi';
-// import useWindowWidthBreakpoints from 'use-window-width-breakpoints';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import styled from 'styled-components';
 import { colors } from '../style/colors.js';
@@ -54,7 +53,6 @@ const userMenu = [
 export default function Navbar() {
   const context = React.useContext(AuthContext);
   const [mobileAnchorElem, setMobileAnchorElem] = React.useState(null);
-  // const breakpoint = useWindowWidthBreakpoints();
   const theme = useTheme();
   const largeDisplay = useMediaQuery(theme.breakpoints.up('md'));
 
