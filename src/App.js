@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
-import './index.scss';
-import './style/home.scss';
-import './style/components.scss';
+import { ThemeProvider } from '@material-ui/core';
 import Home from './components/Home';
 import Login from './components/admin/Login';
 import Dashboard from './components/admin/Dashboard';
 import { authReducer, initialAuthState } from './utils/reducer';
 import { AuthContext } from './utils/context';
+import { theme } from './style/colors.js'; // TODO move
+import './index.scss';
+import './style/home.scss';
+import './style/components.scss';
 
 function App() {
   const _token = localStorage.getItem('token');
@@ -19,13 +21,15 @@ function App() {
 
   return (
     <AuthContext.Provider value={authvalue}>
-      <Router>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/login' component={Login} />
-          <AdminRouter path='/dashboard' component={Dashboard} />
-        </Switch>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/login' component={Login} />
+            <AdminRouter path='/dashboard' component={Dashboard} />
+          </Switch>
+        </Router>
+      </ThemeProvider>
     </AuthContext.Provider>
   );
 }

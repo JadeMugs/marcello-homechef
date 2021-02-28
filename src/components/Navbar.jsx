@@ -6,7 +6,7 @@ import { AuthContext } from '../utils/context';
 import { FiMenu } from 'react-icons/fi';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import styled from 'styled-components';
-import { colors } from '../style/colors.js';
+import { theme as customTheme, colors } from '../style/colors.js';
 
 const hamburgerMenuOptions = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
@@ -53,7 +53,7 @@ const userMenu = [
 export default function Navbar() {
   const context = React.useContext(AuthContext);
   const [mobileAnchorElem, setMobileAnchorElem] = React.useState(null);
-  const theme = useTheme();
+  const theme = useTheme(customTheme);
   const largeDisplay = useMediaQuery(theme.breakpoints.up('md'));
 
   const loggedIn = React.useMemo(() => {
