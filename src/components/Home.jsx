@@ -6,25 +6,12 @@ import Menu from './Menu';
 import Navbar from './Navbar';
 
 export default function Home() {
-  const scrollRef = React.useRef();
-
-  const scrollToRef = () => {
-    if (scrollRef.current) {
-      window.scrollTo({
-        behavior: 'smooth',
-        top: scrollRef.current.offsetTop,
-      });
-    }
-  };
-
   return (
     <div>
       <Navbar />
-      <Landing scrollDown={scrollToRef} />
-      <div ref={scrollRef}>
-        <Menu />
-      </div>
-      <Contacts />
+      <Landing />
+      <Menu id='menu' />
+      <Contacts id='contacts' />
       <Footer />
     </div>
   );

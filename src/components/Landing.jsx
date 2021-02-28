@@ -2,12 +2,9 @@ import React from 'react';
 import leaf from '../static/foglia-sagoma.png';
 // import { FiArrowDownCircle } from 'react-icons/fi';
 import CustomButton from './common/CustomButton';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Landing(props) {
-  const scroll = () => {
-    props.scrollDown();
-  };
-
   return (
     <div className='landing'>
       <div className='title-container'>
@@ -21,7 +18,9 @@ export default function Landing(props) {
       </div>
       <div className='image-container' />
       <div className='scroll-button'>
-        <CustomButton content='Scopri i menu' className='padded' onClick={scroll} />
+        <HashLink smooth to='/#menu'>
+          <CustomButton content='Scopri i menu' className='padded' onClick={() => {}} />
+        </HashLink>
       </div>
     </div>
   );
