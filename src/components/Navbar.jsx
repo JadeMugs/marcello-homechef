@@ -86,8 +86,8 @@ export default function Navbar() {
   );
 
   return (
-    <AppBar>
-      <StyledToolbar>
+    <StyledAppBar>
+      <StyledToolbar disableGutters>
         <StyledLogo src={logo} alt='logo' />
         {!largeDisplay ? (
           <IconButton
@@ -102,13 +102,15 @@ export default function Navbar() {
         )}
       </StyledToolbar>
       {hamburgerMenu}
-    </AppBar>
+    </StyledAppBar>
   );
 }
+const StyledAppBar = styled(AppBar)`
+  min-height: 60px;
+`;
 
 const StyledToolbar = styled(Toolbar)`
   position: absolute;
-  min-height: 60px;
   display: flex;
   width: inherit;
   width: -webkit-fill-available;
