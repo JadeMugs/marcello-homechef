@@ -73,14 +73,14 @@ export default function Navbar() {
   ));
 
   const hamburgerMenu = (
-    <StyledHamburgerMenu
+    <Menu
       anchorEl={mobileAnchorElem}
       id='menu'
       open={!!mobileAnchorElem}
       onClose={handleMobileMenuClose}
       {...hamburgerMenuOptions}>
       {menuItems}
-    </StyledHamburgerMenu>
+    </Menu>
   );
 
   return (
@@ -118,8 +118,6 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
   z-index: 999;
   background: ${colors.white};
-  // margin: 0 10px;
-  // padding-left: 0;
 `;
 
 const StyledLogo = styled.img`
@@ -134,9 +132,6 @@ const StyledMenuList = styled(MenuList)`
   margin: 0;
   padding: 0;
 `;
-
-// TODO fix position on hamburger click
-const StyledHamburgerMenu = styled(Menu)``;
 
 const StyledLink = styled.a`
   text-decoration: none;
