@@ -1,5 +1,4 @@
 import { AppBar, IconButton, Menu, MenuItem, MenuList, Toolbar } from '@material-ui/core';
-import { useTheme } from '@material-ui/core/styles'; // TODO replace with custom theme
 import React from 'react';
 import logo from '../static/logo-font.png';
 import { AuthContext } from '../utils/context';
@@ -53,8 +52,7 @@ const userMenu = [
 export default function Navbar() {
   const context = React.useContext(AuthContext);
   const [mobileAnchorElem, setMobileAnchorElem] = React.useState(null);
-  const theme = useTheme(customTheme);
-  const largeDisplay = useMediaQuery(theme.breakpoints.up('md'));
+  const largeDisplay = useMediaQuery(customTheme.breakpoints.up('md'));
 
   const loggedIn = React.useMemo(() => {
     return !!context?.state?.token;
@@ -107,6 +105,7 @@ export default function Navbar() {
 }
 const StyledAppBar = styled(AppBar)`
   min-height: 60px;
+  background-color: ${colors.white} !important;
 `;
 
 const StyledToolbar = styled(Toolbar)`
