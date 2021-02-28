@@ -104,15 +104,17 @@ export default function Navbar() {
   );
 }
 const StyledAppBar = styled(AppBar)`
-  min-height: 60px;
-  background-color: ${colors.white} !important;
+  && {
+    min-height: 60px;
+    background-color: ${colors.white};
+  }
 `;
 
 const StyledToolbar = styled(Toolbar)`
   position: absolute;
   display: flex;
   width: inherit;
-  width: -webkit-fill-available;
+  width: -webkit-fill-available; // TODO find better solution
   flex-direction: row;
   vertical-align: middle;
   justify-content: space-between;

@@ -5,7 +5,6 @@ import CustomButton from './common/CustomButton';
 
 export default function Landing(props) {
   const scroll = () => {
-    console.log('scroll');
     props.scrollDown();
   };
 
