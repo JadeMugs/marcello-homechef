@@ -7,7 +7,7 @@ export default function CustomButton(props) {
     <Button
       className={className || ''}
       variant='contained'
-      color={props.secondary ? 'secondary' : 'primary'}
+      color={props.color || 'primary'}
       onClick={onClick}
       {...prop}>
       {content}
