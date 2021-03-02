@@ -1,6 +1,5 @@
 import React from 'react';
 import leaf from '../static/foglia-sagoma.png';
-// import { FiArrowDownCircle } from 'react-icons/fi';
 import CustomButton from './common/CustomButton';
 import { HashLink } from 'react-router-hash-link';
 

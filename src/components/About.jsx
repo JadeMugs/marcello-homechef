@@ -1,5 +1,6 @@
 import React from 'react';
+import CustomContainer from './common/CustomContainer';
 
 export default function About() {
-  return <div></div>;
+  return <CustomContainer bgcolor='secondary.light'>La mia storia</CustomContainer>;
 }

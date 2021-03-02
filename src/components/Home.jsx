@@ -12,14 +12,14 @@ export default function Home() {
     <div>
       <Navbar />
       <Landing />
+      <div id='about'>
+        <About />
+      </div>
       <div id='menu'>
         <Menu />
       </div>
       <div id='products'>
         <Products />
-      </div>
-      <div id='about'>
-        <About />
       </div>
       <div id='contacts'>
         <Contacts />
