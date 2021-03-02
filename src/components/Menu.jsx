@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from '../utils/connection';
 
-export default function Menu(props) {
+export default function Menu() {
   const [menuList, setMenuList] = React.useState([]);
 
   React.useEffect(() => {
@@ -9,7 +9,7 @@ export default function Menu(props) {
   }, []);
 
   return (
-    <div className='menu-page' id={props.id}>
+    <div className='menu-page'>
       <div>
         <h1>I menu</h1>
         <div className='menu-list'>

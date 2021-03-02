@@ -6,6 +6,7 @@ import { FiMenu } from 'react-icons/fi';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import styled from 'styled-components';
 import { theme as customTheme, colors } from '../style/colors.js';
+import { HashLink } from 'react-router-hash-link';
 
 const hamburgerMenuOptions = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
@@ -68,7 +69,9 @@ export default function Navbar() {
 
   const menuItems = (loggedIn ? adminMenu : userMenu).map((el) => (
     <MenuItem key={el.link}>
-      <StyledLink href={`#${el.link}`}>{el.text}</StyledLink>
+      <StyledLink href={`#${el.link}`} smooth to={`/#${el.link}`}>
+        {el.text}
+      </StyledLink>
     </MenuItem>
   ));
 
@@ -132,7 +135,7 @@ const StyledMenuList = styled(MenuList)`
   padding: 0;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(HashLink)`
   text-decoration: none;
   color: ${colors.black};
 `;
